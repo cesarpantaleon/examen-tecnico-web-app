@@ -1,0 +1,1063 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  width: 0.3em;
+}
+*::-webkit-scrollbar:horizontal {
+  height: 0.3em;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 0.875rem;
+}
+
+// body[data-theme="dark-theme"] {
+//   --logo: url(/assets/img/logo-white.jpeg) no-repeat;
+// }
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+//var(--bs-link-color); #0099ff
+$mat-blue: (
+  50 : #e3f3fe,
+  100 : #bbdfff,
+  200 : #8eccff,
+  300 : #5fb8ff,
+  400 : #38a8ff,
+  500 : var(--bs-link-color),
+  600 : #048bf1,
+  700 : #0478dd,
+  800 : #0467cb,
+  900 : #0248ac,
+  A100 : #d9d5ff,
+  A200 : #aaa2ff,
+  A400 : #7b6fff,
+  A700 : #000000,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+$mat-accent: (
+  50 : #ffeceb,
+  100 : #ffcfcc,
+  200 : #ffafaa,
+  300 : #fe8f88,
+  400 : #fe776f,
+  500 : #fe5f55,
+  600 : #fe574e,
+  700 : #fe4d44,
+  800 : #fe433b,
+  900 : #fd322a,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffd7d5,
+  A700 : #ffbebc,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$PremicesoftPay-primary: mat-palette($mat-blue, 500);
+$PremicesoftPay-accent: mat-palette($mat-accent, 500);
+$PremicesoftPay-dark-primary: mat-palette($mat-blue, A700);
+$PremicesoftPay-light-primary: mat-palette($mat-blue, 100);
+$PremicesoftPay-primary-text: mat-palette($mat-blue, A700);
+$PremicesoftPay-dark-primary-text: mat-palette($mat-blue, 100);
+$PremicesoftPay-text-icons: mat-palette($mat-grey, A100);
+$PremicesoftPay-secondary-text: mat-palette($mat-grey, 600);
+$PremicesoftPay-dark-secondary-text: mat-palette($mat-grey, 600);
+$PremicesoftPay-divider-color: mat-palette($mat-grey, A400);
+
+// The warn palette is optional (defaults to red).
+$PremicesoftPay-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$PremicesoftPay-theme: mat-light-theme((color: (primary: $PremicesoftPay-primary,
+        accent: $PremicesoftPay-accent,
+        warn: $PremicesoftPay-warn,
+        dark-primary:$PremicesoftPay-dark-primary,
+        light-primary: $PremicesoftPay-light-primary,
+        primary-text: $PremicesoftPay-primary-text,
+        secondary-text: $PremicesoftPay-secondary-text,
+        divider-color: $PremicesoftPay-divider-color,
+        text-icons: $PremicesoftPay-text-icons )));
+
+$PremicesoftPay-dark-theme: mat-dark-theme((color: (primary: $PremicesoftPay-dark-primary,
+        accent: $PremicesoftPay-accent,
+        warn: $PremicesoftPay-warn,
+        dark-primary:$PremicesoftPay-dark-primary,
+        light-primary: $PremicesoftPay-light-primary,
+        primary-text: $PremicesoftPay-dark-primary-text,
+        secondary-text: $PremicesoftPay-secondary-text,
+        divider-color: $PremicesoftPay-divider-color,
+        text-icons:$PremicesoftPay-text-icons )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($PremicesoftPay-theme);
+
+.light-theme{
+  @include angular-material-theme($PremicesoftPay-theme);
+  // background-color: #fff;
+  color: #222;
+}
+
+.dark-theme{
+  @include angular-material-theme($PremicesoftPay-dark-theme);
+  // background-color: #222;
+  color: #fff;
+}
+
+@include angular-material-theme($PremicesoftPay-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+.bg-primary {
+  background-color: #0168fa !important;
+  border-radius: 5px;
+}
+
+a.bg-primary:hover,
+a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: #0153c7 !important;
+}
+
+.bg-secondary {
+  background-color: #7987a1 !important;
+  border-radius: 5px;
+}
+
+a.bg-secondary:hover,
+a.bg-secondary:focus,
+button.bg-secondary:hover,
+button.bg-secondary:focus {
+  background-color: #5f6d88 !important;
+}
+
+.bg-success {
+  background-color: #10b759 !important;
+  border-radius: 5px;
+}
+
+a.bg-success:hover,
+a.bg-success:focus,
+button.bg-success:hover,
+button.bg-success:focus {
+  background-color: #0c8842 !important;
+}
+
+.bg-lightpurple {
+  background-color: #F1EBF4 !important;
+  border-radius: 5px;
+}
+
+.bg-info {
+  background-color: #00b8d4 !important;
+  border-radius: 5px;
+}
+
+a.bg-info:hover,
+a.bg-info:focus,
+button.bg-info:hover,
+button.bg-info:focus {
+  background-color: #008ca1 !important;
+}
+
+.bg-warning {
+  background-color: #ffc107 !important;
+  border-radius: 5px;
+}
+
+a.bg-warning:hover,
+a.bg-warning:focus,
+button.bg-warning:hover,
+button.bg-warning:focus {
+  background-color: #d39e00 !important;
+}
+
+.bg-danger {
+  background-color: #dc3545 !important;
+  border-radius: 5px;
+}
+
+a.bg-danger:hover,
+a.bg-danger:focus,
+button.bg-danger:hover,
+button.bg-danger:focus {
+  background-color: #bd2130 !important;
+}
+
+.bg-light {
+  background-color: #f4f5f8 !important;
+  border-radius: 5px;
+}
+
+a.bg-light:hover,
+a.bg-light:focus,
+button.bg-light:hover,
+button.bg-light:focus {
+  background-color: #d5d9e4 !important;
+}
+
+.bg-dark {
+  background-color: #3b4863 !important;
+  border-radius: 5px;
+}
+
+a.bg-dark:hover,
+a.bg-dark:focus,
+button.bg-dark:hover,
+button.bg-dark:focus {
+  background-color: #283143 !important;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.op-5 {
+  opacity: 0.5;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  //width: 100%;
+}
+
+.little-text {
+  font-size: 10px;
+}
+
+.container-card {
+  align-items: center;
+}
+
+.float-card {
+  margin: 5px 8px 8px 0px;
+  float: left;
+}
+.float-left {
+  float: left !important;
+}
+
+.material-icons-extended {
+  font-family: 'Material Icons Extended';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  width: 100%;
+  color: #757575;
+  list-style: none;
+  //font-size: 1rem;
+  transition: 0.5s all ease-in-out;
+  //padding-left: 1rem;
+  display: flex;
+  //font-size: smaller;
+  cursor: pointer;
+}
+
+.mat-option {
+  font-size: 11px;
+  height: 30px !important;
+}
+
+.error {
+  color: #F44336 !important;
+}
+
+.success {
+  color: #4CAF50 !important;
+}
+
+.warn {
+  color: #FF9800 !important;
+}
+
+.info {
+  color: #2196F3 !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.mat-cell {
+  padding-right: 10px !important;
+}
+
+.primary-color {
+  color: mat-color($PremicesoftPay-primary) !important;
+}
+
+.width-60p {
+  width: 60%;
+}
+
+.width-70p {
+  width: 70%;
+}
+
+.width-80p {
+  width: 80%;
+}
+
+.width-90p {
+  width: 90%;
+}
+
+.width-100p {
+  width: 100%;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.display-grid {
+  display: grid;
+}
+
+.cursor:hover {
+  cursor: pointer;
+}
+
+.icon-error {
+  height: 100px !important;
+  width: 100px !important;
+  font-size: 100px;
+  color: #fe4d44;
+}
+
+.icon-success {
+  height: 100px !important;
+  width: 100px !important;
+  font-size: 100px;
+  color: #37b13c;
+}
+
+.icon-warn {
+  height: 100px !important;
+  width: 100px !important;
+  font-size: 100px;
+  color: #FF9800 !important;
+}
+
+.alert-error {
+  font-size: 24px;
+  color: #fe4d44;
+}
+
+.alert-success {
+  font-size: 24px;
+  color: #37b13c;
+}
+
+.alert-default {
+  font-size: 24px;
+}
+
+.mat-tab-label {
+  font-size: 13px !important;
+  min-width: 110px !important;
+  padding: 0 5px !important;
+}
+
+.width-modal {
+  width: 450px;
+}
+
+.fa-clone:before {
+  content: "\f24d";
+}
+
+.no-border {
+  border: none;
+}
+
+.text-selected {
+  background-color: lightgray;
+}
+.text-10 {
+  font-size: 10px !important;
+}
+
+.text-12 {
+  font-size: 12px !important;
+}
+
+.text-14 {
+  font-size: 14px !important;
+}
+
+.icon-20 {
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.icon-21 {
+  font-size: 21px !important;
+  width: 21px !important;
+  height: 21px !important;
+}
+
+.icon-22 {
+  font-size: 22px !important;
+  width: 22px !important;
+  height: 22px !important;
+}
+
+.icon-23 {
+  font-size: 23px !important;
+  width: 23px !important;
+  height: 23px !important;
+}
+
+.icon-24 {
+  font-size: 24px !important;
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.icon-25 {
+  font-size: 25px !important;
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.text-14 {
+  font-size: 14px !important;
+}
+
+.mat-tab-body-content {
+  overflow: hidden !important;
+  padding: 10px;
+}
+
+.mat-dialog-content {
+  overflow: hidden !important;
+}
+
+.custom-float-right {
+  float: right !important;
+}
+
+.mat-card {
+  margin-bottom: 10px;
+}
+
+.mat-card-title {
+  border-bottom: solid 1px #d9d9db;
+  padding-bottom: 13px;
+  font-size: 17px;
+}
+
+.mat-card-content {
+  padding: 20px;
+}
+
+.card-payment-detail {
+  height: 100%;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+.tx-11 {
+  font-size: 11px;
+}
+.tx-12 {
+  font-size: 12px;
+}
+
+.tx-13 {
+  font-size: 13px !important;
+}
+
+.tx-14 {
+  font-size: 14px !important;
+}
+
+.tx-15 {
+  font-size: 15px !important;
+}
+
+.tx-16 {
+  font-size: 16px !important;
+}
+
+.tx-17 {
+  font-size: 17px !important;
+}
+.mg-l-20 {
+  margin-left: 20px !important;
+}
+.mg-l-10 {
+  margin-left: 10px !important;
+}
+.mg-b-5 {
+  margin-bottom: 5px !important;
+}
+.mg-b-10 {
+  margin-bottom: 10px !important;
+}
+.mg-b-15 {
+  margin-bottom: 15px !important;
+}
+.mg-r-2 {
+  margin-right: 2px;
+}
+
+.mg-r-4 {
+  margin-right: 4px;
+}
+.mg-r-20 {
+  margin-right: 20px !important;
+}
+.mg-r-10 {
+  margin-right: 10px !important;
+}
+.pd-5 {
+  padding: 5px !important;
+}
+.pd-l-10 {
+  padding-left: 10px;
+}
+
+.pd-r-10 {
+  padding-right: 10px;
+}
+
+.mg-t-minus-6{
+  margin-top: -6px;
+}
+
+.mg-t-0 {
+  margin-top: 0px;
+}
+
+.mg-b-0 {
+  margin-bottom: 0px !important;
+}
+
+.wd-200-f {
+  width: 200px !important;
+}
+
+.wd-100-f {
+  width: 100px !important;
+}
+
+.tx-medium {
+  font-weight: 500;
+}
+
+.tx-color-03 {
+  color: #9a9ea5 !important;
+}
+
+.mg-l-auto {
+  margin-left: auto !important;
+}
+.mg-r-auto {
+  margin-right: auto !important;
+}
+
+.align-self-center {
+  align-self: center !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 0.3rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  text-decoration: none;
+}
+
+.nav-link.disabled {
+  color: #7987a1;
+  pointer-events: none;
+  cursor: default;
+}
+
+.user-icons {
+  color: #8392a5;
+  font-size: 22px;
+}
+
+//////////////////////////////////////
+//***********timeline*************
+.timeline-label {
+  margin-left: 10px;
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-left: 1px solid rgba(72, 94, 144, 0.16);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  position: relative;
+}
+
+@media (min-width: 576px) {
+  .timeline-label {
+    margin-left: 120px;
+  }
+}
+
+@media (min-width: 768px) {
+  .timeline-label {
+    margin-left: 150px;
+  }
+}
+
+.timeline-label::before {
+  content: '';
+  position: absolute;
+  top: 29px;
+  left: -6px;
+  background-color: #3b4863;
+  width: 11px;
+  height: 11px;
+  border-radius: 100%;
+}
+
+.timeline-label:first-child {
+  padding-top: 0;
+}
+
+.timeline-label:first-child::before {
+  top: 4px;
+}
+
+@media (min-width: 576px) {
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+  }
+}
+
+.timeline-item+.timeline-item {
+  margin-top: 20px;
+  position: relative;
+}
+
+.timeline-item+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  width: 1px;
+  height: 20px;
+  background-color: rgba(72, 94, 144, 0.16);
+}
+
+@media (min-width: 576px) {
+  .timeline-item+.timeline-item::before {
+    left: 120px;
+  }
+}
+
+@media (min-width: 768px) {
+  .timeline-item+.timeline-item::before {
+    left: 150px;
+  }
+}
+
+.timeline-time {
+  flex-shrink: 0;
+  padding-left: 25px;
+  margin-left: 10px;
+  border-left: 1px solid rgba(72, 94, 144, 0.16);
+  width: 160px !important;
+}
+
+
+@media (min-width: 576px) {
+  .timeline-time {
+    width: 120px;
+    text-align: right;
+    padding-right: 25px;
+    padding-left: 0;
+    margin-left: 0;
+    border-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .timeline-time {
+    width: 150px;
+  }
+}
+
+.timeline-body {
+  flex: 1;
+  padding-left: 25px;
+  border-left: 1px solid rgba(72, 94, 144, 0.16);
+  position: relative;
+  margin-left: 10px;
+}
+
+@media (min-width: 576px) {
+  .timeline-body {
+    margin-left: 0;
+  }
+}
+
+.timeline-body::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: -6px;
+  background-color: #fff;
+  width: 11px;
+  height: 11px;
+  border: 2px solid #0168fa;
+  border-radius: 100%;
+}
+
+.timeline-body h6 {
+  line-height: 1.5;
+}
+
+.avatar {
+  position: relative;
+  width: 38px;
+  height: 38px;
+}
+
+.avatar-initial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #8392a5;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter UI", Roboto, sans-serif;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-xs {
+  width: 26px;
+  height: 26px;
+}
+
+.avatar-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.avatar-sm .avatar-initial {
+  font-size: 13px;
+}
+
+.border-none {
+  border: none;
+}
+
+::ng-deep .mat-card-header-text {
+  /* CSS styles go here */
+  margin: 0px; // for example to remove the margin
+}
+
+.border-bottom-1 {
+  border-bottom: 1px solid #cfcfcf;
+  border-radius: 0px !important;
+}
+
+.assetimg {
+  max-height: 24px;
+  vertical-align: middle;
+  margin-top: -4px;
+  margin-right: 3px
+}
+
+
+.mat-tab-label-active {
+  .mat-tab-label-content {
+    font-weight: bold;
+    color: black;
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      //background: mat-color($PremicesoftPay-primary);
+      background: var(--bs-link-color);
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+mat-ink-bar {
+  display: none !important;
+}
+
+.mat-drawer-inner-container {
+  overflow-x: hidden !important;
+}
+
+table th {
+  
+  font-weight: 600 !important;
+}
+
+.status-active {
+  color: mat-color($PremicesoftPay-primary);
+}
+
+.status-inactive {
+  color: #FF3333;
+}
+.content-header{
+  display: flex;
+}
+
+@media (min-width: 992px) {
+  .content-header svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.content-header svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2.5px;
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  vertical-align: middle;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+.color-white{
+  color:#fff;
+}
+.active{
+  background-color: #fff;
+  //border-radius: 5px;
+  border-left:solid 0.2rem mat-color($PremicesoftPay-primary) !important;
+  color: mat-color($PremicesoftPay-primary) !important;
+  font-weight: bold;
+  width: 218px !important;
+}
+.border-radius{
+  border-radius: 4px;
+  padding: 3px;
+}
+.mat-icon{
+  width: auto !important;
+}
+
+table.table-head-style {
+  border-collapse: collapse;
+}
+table.table-head-style thead tr th {
+background-color: mat-color($PremicesoftPay-primary);
+padding: 5px;
+}
+
+.rounded{
+  text-align: center;
+    border-radius: 50% !important;
+    background-color: var(--bs-link-color);
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+}
+.sub-menu-head{
+  margin-left: 40px;
+  margin-top: 5px;
+}
+.sub-menu-active {
+  background-color: #fff;
+  border-left: solid 0.2rem var(--bs-link-color) !important;
+  color: var(--bs-link-color) !important;
+  font-weight: bold;
+  width: 178px !important;
+}
+.mat-expansion-panel {
+  
+  position: inherit !important;
+}
+.mat-expansion-panel-header {
+  
+  padding: 0 17px 0 0px !important;
+  height: 45px !important;
+}
+.mat-expansion-panel-header:hover {
+  
+  padding: 0 17px 0 0px !important;
+  height: 45px !important;
+}
+.mat-focus-indicator {
+  position: inherit;
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 
+  0px 0px 0px 0px rgba(0, 0, 0, 0.14),
+  0px 0px 0px 0px rgba(0, 0, 0, 0.12) !important;
+}
+.submenu-links{
+  padding-bottom: 4px !important;
+    padding-top: 4px !important;
+}
+.bg-gray{
+  background-color: #383838 !important;
+}
+.fc-white{
+  color: #fff !important;
+}
+// .mat-expansion-indicator::after{
+//   color: #fff !important;
+// }
+.display-inline-block{
+  display: inline-block !important;
+}
+.mat-slide-toggle-content{
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
+}
+.mat-slide-toggle-label{
+  display: grid !important;
+}
+
+.mat-slide-toggle-bar{
+  margin-left: 12px !important;
+}
+
+.checked-night-theme{
+  margin-right: 13px !important;
+    margin-bottom: 10px !important;
+}
+
+.user-type{
+  font-size: 11px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

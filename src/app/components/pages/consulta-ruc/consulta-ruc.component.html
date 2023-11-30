@@ -1,0 +1,50 @@
+<div class="col-lg-12 col-md-12 col-sm-12 p-2" >
+    <mat-card class="card">
+      
+      <mat-card-content class="mb-0">
+        <h1 class="tx-color-01">Consultar RUC</h1>
+        <mat-form-field style="width: 100%; margin-bottom: 10px;" [ngClass]="{'mat-input-invalid': error?error.code == 1:false}">
+          <input matInput type="number" [(ngModel)]="ruc" placeholder="RUC" autocomplete="false"/>
+          
+        </mat-form-field>
+        <button mat-raised-button type="button" [disabled]="loading" (click)="consultaRuc()"> Consultar</button>
+        <button mat-raised-button type="button" (click)="limpiar()"> Limpiar</button>
+
+        <form id="persona-form" #lForm="ngForm" [formGroup]="formPersona"  novalidate>
+          
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}">
+            <input matInput formControlName="razon_social" placeholder="Razón Social" [readonly]="true" />
+            <mat-hint style="color: red;" *ngIf="formPersona.controls['razon_social'].hasError('required')">Razon social es requerido</mat-hint>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}" >
+            <input matInput formControlName="estado" placeholder="Estado"  [readonly]="true"/>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}">
+            <input matInput formControlName="direccion" placeholder="Dirección" [readonly]="true"/>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}">
+            <input matInput formControlName="ubigeo" placeholder="Ubigeo" [readonly]="true"/>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}">
+            <input matInput formControlName="departamento" placeholder="Departamento" [readonly]="true"/>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}">
+            <input matInput formControlName="provincia" placeholder="Provincia" [readonly]="true"/>
+          </mat-form-field>
+          <mat-form-field style="width: 100%;" [ngClass]="{'mat-input-invalid': error?error.code == 2:false}">
+            <input matInput formControlName="distrito" placeholder="Distrito" [readonly]="true"/>
+          </mat-form-field>
+
+          <div style="color: #fff;" class="text-center p-2 bg-danger" *ngIf="error?.message != ''">{{error.message}}
+          </div>
+          <div style="color: #fff;" class="text-center p-2 bg-success" *ngIf="message_success != ''">{{message_success}}
+          </div>
+          <mat-card-actions style="text-align: right;">
+            <button mat-raised-button type="button" (click)="postPersona()" [class.spinner]="loading" form="login-form" [disabled]="formPersona.invalid || loading"> Register</button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+      
+    </mat-card>
+  </div>
+  
